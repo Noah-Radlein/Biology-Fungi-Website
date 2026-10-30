@@ -1,0 +1,276 @@
+body {
+    margin: 0;
+    font-family: 'Poppins', sans-serif;
+    background: #f7f4e9; 
+    color: #3b3b3b;
+    overflow-x: hidden;
+}
+
+
+header {
+    background: linear-gradient(90deg, #8bc34a, #cddc39, #ffeb3b);
+    padding: 30px;
+    text-align: center;
+    font-size: 40px;
+    font-weight: 900;
+    color: #2e2e2e;
+    letter-spacing: 1px;
+    animation: headerFade 3s ease-in-out infinite alternate;
+}
+
+
+footer {
+    background: linear-gradient(90deg, #8bc34a, #cddc39, #ffeb3b);
+    padding: 20px;
+    text-align: center;
+    font-size: 20px;
+    font-weight: 800;
+    color: #2e2e2e;
+    letter-spacing: 1px;
+    animation: headerFade 3s ease-in-out infinite alternate;
+}
+
+@keyframes headerFade {
+    from { opacity: 0.9; }
+    to { opacity: 1; }
+}
+
+
+nav {
+    background: #4e342e; 
+    padding: 15px;
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    flex-wrap: wrap;
+}
+
+
+
+nav a {
+    color: #f7f4e9;
+    font-size: 20px;
+    text-decoration: none;
+    font-weight: 600;
+    transition: 0.3s;
+}
+
+nav a:hover {
+    color: #cddc39;
+    transform: scale(1.1);
+}
+
+section {
+    max-width: 900px;
+    margin: auto;
+    padding: 40px;
+}
+
+
+.card {
+    background: #fffdf6;
+    padding: 25px;
+    border-radius: 15px;
+    border-left: 10px solid #8bc34a;
+    margin-bottom: 30px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    transition: 0.4s;
+    animation: fadeIn 1s ease;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    border-left-color: #cddc39;
+}
+
+h2 {
+    color: #6d4c41; 
+    font-size: 32px;
+}
+
+.card img{
+    max-width:500px;
+    width:100%;
+    display:block;
+    margin:auto;
+}
+
+#popup {
+  display: none;
+}
+
+.image-container {
+  display: flex;            
+  justify-content: center;   
+  align-items: center;       
+  gap: 20px;                
+  padding: 30px; 
+
+}
+
+.image-container img {
+  width: 45%;               
+  object-fit: cover;         
+}
+
+ .card {
+        text-align: justify;
+    }
+
+    .diagram-wrapper{
+    display:flex;
+    justify-content:center;
+    align-items:flex-start;
+    gap:50px;
+}
+
+.diagram{
+    position:relative;
+    width:700px;
+}
+
+.diagram img{
+    width:100%;
+}
+
+.target{
+    position:absolute;
+    display:flex;
+    align-items:center;
+    gap:10px;
+}
+
+.cap-target{
+    top:50px;
+    right:-170px;
+}
+
+.gills-target{
+    top:170px;
+    right:-170px;
+}
+
+.stem-target{
+    top:290px;
+    right:-170px;
+}
+
+.spores-target{
+    top:410px;
+    right:-170px;
+}
+
+.mycelium-target{
+    top:520px;
+    right:-170px;
+}
+
+.hyphae-target{
+    top:620px;
+    right:-170px;
+}
+
+.diagram-container{
+    position:relative;
+    width:900px;
+    margin:auto;
+}
+
+.diagram-img{
+    width:100%;
+    display:block;
+}
+
+.dropzone{
+    position:absolute;
+    width:120px;
+    height:50px;
+    background:transparent;
+    border:none;
+}
+.dropzone .label{
+    width:100%;
+    height:100%;
+    margin:0;
+}
+
+.cap-zone{
+    top:10px;
+    left:470px;
+}
+
+.gills-zone{
+    top:87px;
+    left:90px;
+}
+
+.ring-zone{
+    top:103px;
+    left:435px;
+}
+
+.stem-zone{
+    top:179px;
+    left:420px;
+}
+
+.volva-zone{
+    top:259px;
+    left:160px;
+}
+
+.mycelium-zone{
+    top:399px;
+    left:400px;
+}
+
+.spores {
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    z-index: -1;
+}
+
+.spores span {
+    position: absolute;
+    bottom: -50px;
+    width: 10px;
+    height: 10px;
+    background: rgba(205,220,57,0.4);
+    border-radius: 50%;
+    animation: floatUp 12s linear infinite;
+}
+
+.spores span:nth-child(1){ left:10%; animation-duration:5s; animation-delay:0.1s; }
+.spores span:nth-child(2){ left:20%; animation-duration:6s; animation-delay:0.25s; }
+.spores span:nth-child(3){ left:35%; animation-duration:5.5s; animation-delay:1.25s; }
+.spores span:nth-child(4){ left:50%; animation-duration:6s; animation-delay:0.25s; }
+.spores span:nth-child(5){ left:65%; animation-duration:5s; animation-delay:1.25s; }
+.spores span:nth-child(6){ left:80%; animation-duration:5.5s; animation-delay:0.75s; }
+.spores span:nth-child(7){ left:90%; animation-duration:6s; animation-delay:1.05s; }
+.spores span:nth-child(8){ left:70%; animation-duration:5.5s; animation-delay:1.05s; }
+.spores span:nth-child(9){ left:85%; animation-duration:5s; animation-delay:1.25s; }
+.spores span:nth-child(10){ left:95%; animation-duration:6s; animation-delay:1.3s; }
+.spores span:nth-child(11){ left:15%; animation-duration:6s; animation-delay:1.3s; }
+.spores span:nth-child(12){ left:25%; animation-duration:5.5s; animation-delay:1.3s; }
+
+
+@keyframes floatUp{
+    0%{
+        transform:translateY(0);
+        opacity:1;
+    }
+
+    20%{
+        opacity:2;
+    }
+
+    100%{
+        transform:translateY(-120vh);
+        opacity:1;
+    }
+}
+

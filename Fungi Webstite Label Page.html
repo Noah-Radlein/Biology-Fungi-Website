@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Fungi Quiz</title>
+<link rel="stylesheet" href="Website css.css">
+
+<style>
+
+body{
+    font-family: Arial, sans-serif;
+}
+
+.img{
+    height:500px;
+    width:500px;
+}
+
+.card{
+    text-align:center;
+    margin:20px;
+}
+
+.intro{
+    max-width:900px;
+    margin:auto;
+    padding:20px;
+    line-height:1.6;
+}
+
+.diagram-container{
+    display:flex;
+    justify-content:center;
+    gap:50px;
+    margin:40px;
+}
+
+.labels{
+    display:flex;
+    flex-direction:column;
+    gap:10px;
+}
+
+.label{
+    padding:10px;
+    background-color:#4caf50;
+    color:white;
+    border-radius:5px;
+    cursor:grab;
+    width:120px;
+    text-align:center;
+}
+
+.diagram{
+    position:relative;
+}
+
+.dropzone{
+    width:120px;
+    height:40px;
+    border:2px dashed black;
+    margin:15px;
+    text-align:center;
+    line-height:40px;
+    background-color:#f4f4f4;
+}
+
+.correct{
+    background-color:lightgreen;
+}
+
+.incorrect{
+    background-color:salmon;
+}
+
+button{
+    padding:10px 20px;
+    margin-top:20px;
+    cursor:pointer;
+}
+
+#score{
+    font-size:20px;
+    margin-top:20px;
+}
+
+</style>
+</head>
+
+<body>
+
+<header>
+    <h1>Fungi — Label Activity</h1>
+</header>
+
+<nav>
+    <a href="Fungi Website Homepage.html">Home</a>
+    <a href="Fungi Website Overview Page.html">Overview</a>
+    <a href="Fungi Website Reproduction Page.html">Reproduction</a>
+    <a href="Fungi Website Nutrition Page.html">Nutrition</a>
+    <a href="Fungi Website Quiz Page.html">Quiz</a>
+    <a href="Fungi Website References Page.html">References</a>
+</nav>
+
+<section class="intro">
+
+    <h2>Parts of a Fungus</h2>
+
+    <p>
+        Fungi are unique organisms that play an important role in nature.
+        They obtain nutrients by absorbing them from their surroundings and
+        reproduce through spores.
+    </p>
+
+    <h3>Cap</h3>
+    <p>The top structure of a mushroom that protects reproductive tissues.</p>
+
+    <h3>Gills</h3>
+    <p>Thin structures found under the cap that produce spores.</p>
+
+    <h3>Stem (Stipe)</h3>
+    <p>The stalk that supports the cap.</p>
+
+    <h3>Ring</h3>
+    <p>A thin membrane that surrounds the stem.</p>
+
+    <h3>Mycelium</h3>
+    <p>A network of fungal threads found underground.</p>
+
+    <h3>Volva</h3>
+    <p>A cup-like structure at the base of some mushrooms.</p>
+
+    <p><strong>Scroll down and test your knowledge!</strong></p>
+
+</section>
+
+<section class="card">
+
+    <h2>Label the Mushroom</h2>
+
+    
+    <div class="diagram-container">
+
+       <div class="diagram-wrapper">
+
+    <div class="labels">
+        <div id="Cap" class="label" draggable="true">Cap</div>
+        <div id="Gills" class="label" draggable="true">Gills</div>
+        <div id="Ring" class="label" draggable="true">Ring</div>
+        <div id="Stem" class="label" draggable="true">Stem</div>
+        <div id="Volva" class="label" draggable="true">Volva</div>
+        <div id="Mycelium" class="label" draggable="true">Mycelium</div>
+    </div>
+
+  
+    <div class="diagram">
+
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQaH80kYXFxFwBIxv0kYOKcsu16cF9ZfZaBKUUq6MoBklBSV0OWCeA6kgT-&s=10" alt="Fungi Diagram">
+
+    <!-- Cap -->
+    <div class="dropzone cap-zone" data-answer="cap"></div>
+
+    <!-- Gills -->
+    <div class="dropzone gills-zone" data-answer="gills"></div>
+
+    <!-- Ring -->
+    <div class="dropzone ring-zone" data-answer="ring"></div>
+
+    <!-- Stem -->
+    <div class="dropzone stem-zone" data-answer="stem"></div>
+
+    <!-- Volva -->
+    <div class="dropzone volva-zone" data-answer="volva"></div>
+
+    <!-- Mycelium -->
+    <div class="dropzone mycelium-zone" data-answer="mycelium"></div>
+
+</div>
+
+    </div>
+
+    </div>
+
+    <button onclick="checkAnswers()">
+        Check Answers
+    </button>
+
+    <div id="score"></div>
+
+</section>
+
+<script>
+
+// Drag labels
+const labels = document.querySelectorAll(".label");
+
+labels.forEach(label => {
+
+    label.addEventListener("dragstart", e => {
+        e.dataTransfer.setData("text", e.target.id);
+    });
+
+});
+
+// Allow drop
+const zones = document.querySelectorAll(".dropzone");
+
+zones.forEach(zone => {
+
+    zone.addEventListener("dragover", e => {
+        e.preventDefault();
+    });
+
+    zone.addEventListener("drop", e => {
+
+        e.preventDefault();
+
+        const id =
+        e.dataTransfer.getData("text");
+
+        const item =
+        document.getElementById(id);
+
+        zone.innerHTML = "";
+        zone.appendChild(item);
+
+    });
+
+});
+
+// Check score
+function checkAnswers(){
+
+    let score = 0;
+
+    zones.forEach(zone => {
+
+        const answer =
+        zone.dataset.answer;
+
+        const placed =
+        zone.firstElementChild
+        ? zone.firstElementChild.id
+        : "";
+
+        if(answer === placed){
+
+            zone.classList.remove("incorrect");
+            zone.classList.add("correct");
+            score++;
+
+        }
+        else{
+
+            zone.classList.remove("correct");
+            zone.classList.add("incorrect");
+
+        }
+
+    });
+
+    document.getElementById("score").innerHTML =
+        "Score: " + score + "/6";
+
+}
+
+</script>
+
+</body>
+</html>
+
